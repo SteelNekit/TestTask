@@ -9,7 +9,10 @@ public class HTMLParser {
             Document document = Jsoup.connect(url).get();
             return document.text();
         }catch(IOException e){
-            System.out.print(e.getMessage());
+            System.out.println(e.getMessage());
+            return "";
+        }catch (IllegalArgumentException e){
+            System.out.println("Неверный формат ссылки");
             return "";
         }
     }
